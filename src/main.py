@@ -33,6 +33,7 @@ most_recent_week = df["Week ending"].max()
 # Match with whether or not they're are a developer
 df_roles = pd.read_csv("src/data/Reference/Roles.csv")
 df = pd.merge(df, df_roles, on="Name")
+df = df.fillna({"Role": "Developer"})
 
 # Setting up the dash app
 app = Dash()
