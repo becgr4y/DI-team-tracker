@@ -1,5 +1,5 @@
 bar_chart_data_columns = [
-    "How many hows did you spend pair coding?",
+    "How many hours did you spend pair coding?",
     "How many hours did you spend doing something new?",
     "How many three-hour development blocks did you get?",
 ]
@@ -29,7 +29,7 @@ discrete_colours = [
 ]
 
 axis_labels = {
-    "How many hows did you spend pair coding?": "Hours pair coding",
+    "How many hours did you spend pair coding?": "Hours pair coding",
     "How many hours did you spend doing something new?": "Hours doing something new",
     "How many three-hour development blocks did you get?": "Number of development blocks",
     "Please describe your overall stress level for the week": "Stress level",
@@ -42,3 +42,8 @@ animal_directory = "src/data/Images"
 animal_file_name = "animal"
 
 cat_url = "https://cataas.com/cat"
+
+gmail_user = "DIteamtracker@gmail.com"
+gmail_password = "kzfzvfcndoxcihcj"
+
+send_workload_flags_to = ["bec.gray@carnallfarrar.com"]
