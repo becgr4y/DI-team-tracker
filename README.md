@@ -8,4 +8,5 @@ To run the code:
 1. Clone the repo
 2. Download the most recent survey results (all history) and paste into src/data/Results
 3. In terminal, navigate to the project folder
-4. Run `pipenv run python src/main.py` (note that it emails Will and Hansa every time you run the code, so that comment that bit out if you plan on doing it a lot.)
+4. Run `pipenv run python src/main.py` to launch the dashboard
+5. Run `pipenv run python src/send_email.py` to email Will and Hansa with the names of people who want to discuss their workload

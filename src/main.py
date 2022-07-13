@@ -1,6 +1,5 @@
 import glob
 import os
-import smtplib
 
 import numpy as np
 import pandas as pd
@@ -36,53 +35,6 @@ df_roles = pd.read_csv("src/data/Reference/Roles.csv")
 df = pd.merge(df, df_roles, on="Name")
 df = df.fillna({"Role": "Developer"})
 
-# Send email for people who wish to discuss their workload
-discuss_workload = df.loc[
-    (df["Week ending"] == most_recent_week)
-    & (
-        df["Would you like to discuss your current workload with Will or Hansa?"]
-        == "Yes"
-    ),
-    "Name",
-].to_list()
-if len(discuss_workload) > 0:
-    sent_from = gmail_user
-    to = send_workload_flags_to
-    subject = "TEST - DI Weekly Survey: People flagging workload"
-    body = """\
-    Hi Hansa and Will,
-
-    The following people would like to discuss their workload with you:
-    - %s
-
-    Have a nice week!
-    """ % (
-        "\n - ".join(discuss_workload)
-    )
-
-    email_text = """\
-    From: %s
-    To: %s
-    Subject: %s
-
-    %s
-    """ % (
-        sent_from,
-        ", ".join(to),
-        subject,
-        body,
-    )
-
-    try:
-        smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-        smtp_server.ehlo()
-        smtp_server.login(gmail_user, gmail_password)
-        smtp_server.sendmail(sent_from, to, email_text)
-        smtp_server.close()
-        print("Email sent successfully!")
-    except Exception as ex:
-        print("Something went wrong….", ex)
-
 # Setting up the dash app
 app = Dash()
 
@@ -96,7 +48,7 @@ app.layout = html.Div(
         html.H1(children="DI Team Dashboard"),
         question_dropdown,
         html.Div(
-            [
+            children=[
                 html.Div([dcc.Graph(id="survey_results_top")]),
                 html.Div([dcc.Graph(id="survey_results_bottom")]),
             ]

@@ -5,6 +5,7 @@ import dog
 import numpy as np
 import requests
 import random
+import smtplib
 
 from config import *
 
@@ -65,3 +66,59 @@ def choose_randomly():
         get_dog()
     else:
         get_cat()
+
+
+def send_email(discuss_workload):
+    """
+    Uses smtp to send an email to Will and Hansa if anyone has flagged
+    wanting to discuss their workload.
+
+    Args:
+        discuss_workload (List(str)): List of people who answered yes
+    """
+    if len(discuss_workload) > 0:
+        body = """\
+        Hi Hansa and Will,
+
+        The following people would like to discuss their workload with you:
+        - %s
+
+        Have a nice week!
+        """ % (
+            "\n - ".join(discuss_workload)
+        )
+    else:
+        body = """\
+        Hi Hansa and Will,
+
+        No one wants to discuss their workload this week :)
+
+        Have a nice week!
+        """
+
+    sent_from = gmail_user
+    to = send_workload_flags_to
+    subject = "TEST - DI Weekly Survey: People flagging workload"
+
+    email_text = """\
+    From: %s
+    To: %s
+    Subject: %s
+
+    %s
+    """ % (
+        sent_from,
+        ", ".join(to),
+        subject,
+        body,
+    )
+
+    try:
+        smtp_server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+        smtp_server.ehlo()
+        smtp_server.login(gmail_user, gmail_password)
+        smtp_server.sendmail(sent_from, to, email_text)
+        smtp_server.quit()
+        print("Email sent successfully!")
+    except Exception as ex:
+        print("Something went wrong….", ex)
