@@ -78,6 +78,7 @@ def update_top_graph(selected_metric):
             y="number_of_people",
             color="Role",
             color_discrete_sequence=discrete_colours,
+            barmode="group",
             title="This week:",
             labels={
                 f"Numeric: {selected_metric}": axis_labels[selected_metric],
@@ -85,6 +86,7 @@ def update_top_graph(selected_metric):
             },
         )
         fig.update_layout(yaxis=dict(tickmode="linear", tick0=0, dtick=1))
+        fig.update_traces(width=1)
 
     elif selected_metric in pie_chart_data_columns:
         last_week = (
@@ -127,7 +129,11 @@ def update_top_graph(selected_metric):
         )
         results = {key[0]: value for key, value in last_week.to_dict().items()}
         if len(results) > 0:
-            if results["Dogs"] > results["Cats"]:
+            if "Dogs" not in results:
+                get_cat()
+            elif "Cats" not in results:
+                get_dog()
+            elif results["Dogs"] > results["Cats"]:
                 get_dog()
             elif results["Dogs"] < results["Cats"]:
                 get_cat()
