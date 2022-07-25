@@ -32,8 +32,12 @@ most_recent_week = df["Week ending"].max()
 
 # Match with whether or not they're are a developer
 df_roles = pd.read_csv("src/data/Reference/Roles.csv")
-df = pd.merge(df, df_roles, on="Name")
-df = df.fillna({"Role": "Developer"})
+df = pd.merge(df, df_roles, on="Name", how="left")
+missing_in_roles_table = list(set(df.loc[df["Role"].isna(), "Name"].to_list()))
+if len(missing_in_roles_table) > 0:
+    print(f"Please add {', '.join(missing_in_roles_table)} to the roles table")
+    df = df.fillna({"Role": "Developer"})
+
 
 # Setting up the dash app
 app = Dash()
@@ -78,7 +82,6 @@ def update_top_graph(selected_metric):
             y="number_of_people",
             color="Role",
             color_discrete_sequence=discrete_colours,
-            barmode="group",
             title="This week:",
             labels={
                 f"Numeric: {selected_metric}": axis_labels[selected_metric],
