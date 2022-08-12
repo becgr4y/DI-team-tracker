@@ -95,6 +95,8 @@ def update_top_graph(selected_metric):
             )
             y_position += 200
             count += 1
+            if count == len(discrete_colours):
+                count = 0
 
         fig = px.imshow(img)
         fig.update_layout(coloraxis_showscale=False)
