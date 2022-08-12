@@ -3,8 +3,7 @@ import os
 
 import pandas as pd
 
-from utils import send_email, round_to_end_of_week
-from config import *
+from utils import round_to_end_of_week, send_email
 
 # Read in most recent file
 list_of_files = [

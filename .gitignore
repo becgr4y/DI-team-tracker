@@ -133,4 +133,6 @@ dmypy.json
 
 # Data
 src/data/Images/
-src/data/Results/*
+src/data/Results/**
+!src/data/Results/Weekly
+!src/data/Results/Monthly
