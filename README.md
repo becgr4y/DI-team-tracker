@@ -1,7 +1,9 @@
 # DI-team-tracker
 
-An extremely extra way to track DI team metrics based on the DI weekly survey:
-[Link to survey](https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=VMQEKxY4FESUTTf_kH9z0d5wsWds7_REoQcg4UZEhv5UQUpVMk1NMUcxUjRBUDkxUE5HRENVQ1dONC4u&Token=6d8391f52b284173b5d218b5b3e68838)
+An extremely extra way to track DI team metrics based on the DI surveys:
+[Link to weekly survey](https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=VMQEKxY4FESUTTf_kH9z0d5wsWds7_REoQcg4UZEhv5UQUpVMk1NMUcxUjRBUDkxUE5HRENVQ1dONC4u&analysis=true)
+
+[Link to monthly survey](https://forms.office.com/Pages/DesignPageV2.aspx?origin=NeoPortalPage&subpage=design&id=VMQEKxY4FESUTTf_kH9z0d5wsWds7_REoQcg4UZEhv5UQlRRR1RYUU9ZVjFSMU5HSUVTQTUwRDg1Qi4u&analysis=true)
 
 To run the code:
 
