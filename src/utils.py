@@ -1,27 +1,27 @@
+import glob
+import os
+import random
 import re
-from datetime import timedelta, datetime
-import pandas as pd
-import plotly.express as px
+import smtplib
+from datetime import datetime, timedelta
 
 import dog
 import numpy as np
+import pandas as pd
+import plotly.express as px
 import requests
-import random
-import smtplib
-import glob
-import os
 from skimage import io
 
 from config import (
-    cat_url,
-    animal_file_path,
     animal_directory,
     animal_file_name,
+    animal_file_path,
+    axis_labels,
+    cat_url,
+    discrete_colours,
+    gmail_password,
     gmail_user,
     send_workload_flags_to,
-    gmail_password,
-    discrete_colours,
-    axis_labels,
 )
 
 

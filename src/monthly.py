@@ -1,17 +1,17 @@
 import pandas as pd
+import plotly.express as px
 from dash import Dash, Input, Output, dcc, html
 from PIL import Image, ImageDraw, ImageFont
-import plotly.express as px
 
-from config import monthly_questions, discrete_colours
+from config import discrete_colours, monthly_questions
 from utils import (
-    read_most_recent_file,
-    create_numeric_columns,
-    round_to_end_of_week,
     create_bar_chart,
+    create_empty_image,
+    create_numeric_columns,
     create_pie_chart,
     create_time_series_chart,
-    create_empty_image,
+    read_most_recent_file,
+    round_to_end_of_week,
 )
 
 # Read in most recent file

@@ -3,14 +3,14 @@ from dash import Dash, Input, Output, dcc, html
 
 from config import weekly_questions
 from utils import (
-    read_most_recent_file,
-    create_numeric_columns,
-    round_to_end_of_week,
     create_bar_chart,
-    create_pie_chart,
-    get_animal_picture,
-    create_time_series_chart,
     create_empty_image,
+    create_numeric_columns,
+    create_pie_chart,
+    create_time_series_chart,
+    get_animal_picture,
+    read_most_recent_file,
+    round_to_end_of_week,
 )
 
 # Read in most recent file
