@@ -11,5 +11,5 @@ To run the code:
 1. Clone the repo
 2. Download the most recent survey results (all history) and paste into src/data/Results in either Weekly or Monthly
 3. In terminal, navigate to the project folder
-4. Run `pipenv run python src/weekly.py` or `pipenv run python src/wmekly.py` to launch the dashboard
+4. Run `pipenv run python src/weekly.py` or `pipenv run python src/monthly.py` to launch the dashboard
 5. Run `pipenv run python src/send_email.py` to email Will and Hansa with the names of people who want to discuss their workload
