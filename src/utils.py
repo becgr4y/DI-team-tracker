@@ -182,7 +182,7 @@ def send_email(discuss_workload):
         print("Something went wrong….", ex)
 
 
-def create_bar_chart(df: pd.DataFrame, metric: str, most_recent_week: datetime):
+def create_bar_chart(df: pd.DataFrame, metric: str, most_recent_week: datetime, time_period: str):
     """
     Takes Dataframe and creates bar chart of selected column for the most recent week
 
@@ -190,6 +190,7 @@ def create_bar_chart(df: pd.DataFrame, metric: str, most_recent_week: datetime):
         df (pd.DataFrame): DataFrame with data
         metric (str): name of column for metric
         most_recent_week (datetime): date of most recent week
+        time_period (str): time_period for chart
 
     Returns:
         plotly figure
@@ -208,7 +209,7 @@ def create_bar_chart(df: pd.DataFrame, metric: str, most_recent_week: datetime):
         y="number_of_people",
         color="Role",
         color_discrete_sequence=discrete_colours,
-        title="This week:",
+        title=f"This {time_period}:",
         labels={
             f"Numeric: {metric}": axis_labels[metric],
             "number_of_people": "Number of people",
@@ -217,7 +218,7 @@ def create_bar_chart(df: pd.DataFrame, metric: str, most_recent_week: datetime):
     return fig
 
 
-def create_pie_chart(df: pd.DataFrame, metric: str, most_recent_week: str):
+def create_pie_chart(df: pd.DataFrame, metric: str, most_recent_week: str, time_period: str):
     """
     Takes Dataframe and creates bar chart of selected column for most recent week
 
@@ -225,6 +226,7 @@ def create_pie_chart(df: pd.DataFrame, metric: str, most_recent_week: str):
         df (pd.DataFrame): DataFrame with data
         metric (str): name of column for metric
         most_recent_week (datetime): date of most recent week
+        time_period (str): time_period for chart
 
     Returns:
         plotly figure
@@ -245,7 +247,7 @@ def create_pie_chart(df: pd.DataFrame, metric: str, most_recent_week: str):
         values="counts",
         names=metric,
         color_discrete_sequence=discrete_colours,
-        title="This week:",
+        title=f"This {time_period}:",
     )
     fig.update_traces(sort=False)
 

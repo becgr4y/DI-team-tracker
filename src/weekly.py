@@ -67,12 +67,12 @@ app.layout = html.Div(
 )
 def update_top_graph(selected_metric):
     if selected_metric in weekly_questions["bar_chart_questions"]:
-        fig = create_bar_chart(df, selected_metric, most_recent_week)
+        fig = create_bar_chart(df, selected_metric, most_recent_week, "week")
         fig.update_layout(yaxis=dict(tickmode="linear", tick0=0, dtick=1))
         fig.update_traces(width=1)
 
     elif selected_metric in weekly_questions["pie_chart_questions"]:
-        fig = create_pie_chart(df, selected_metric, most_recent_week)
+        fig = create_pie_chart(df, selected_metric, most_recent_week, "week")
 
     elif selected_metric in weekly_questions["picture_questions"]:
         fig = get_animal_picture(df, most_recent_week)
