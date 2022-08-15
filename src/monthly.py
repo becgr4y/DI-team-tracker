@@ -67,12 +67,12 @@ app.layout = html.Div(
 )
 def update_top_graph(selected_metric):
     if selected_metric in monthly_questions["bar_chart_questions"]:
-        fig = create_bar_chart(df, selected_metric, most_recent_week)
+        fig = create_bar_chart(df, selected_metric, most_recent_week, "month")
         fig.update_layout(yaxis=dict(tickmode="linear", tick0=0, dtick=1))
         fig.update_traces(width=1)
 
     elif selected_metric in monthly_questions["pie_chart_questions"]:
-        fig = create_pie_chart(df, selected_metric, most_recent_week)
+        fig = create_pie_chart(df, selected_metric, most_recent_week, "month")
 
     elif selected_metric in monthly_questions["free_text_questions"]:
         response_text = df.loc[
