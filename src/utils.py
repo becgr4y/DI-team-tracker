@@ -56,6 +56,7 @@ def create_numeric_columns(
     Returns:
         pd.DataFrame: original DataFrame with additional numeric columns
     """
+    df = df.fillna(0)
     for column in list_of_columns:
         df[f"Numeric: {column}"] = df[column].apply(lambda x: handling_bad_numbers(x))
 
@@ -91,7 +92,6 @@ def handling_bad_numbers(data_entry: str) -> int:
     Returns:
         int: integer value
     """
-
     try:
         return int(data_entry)
     except ValueError:
@@ -103,6 +103,7 @@ def get_cat():
     """
     Retrieves cat image from Cat as a service and saves to file.
     """
+    "Cats win!"
     response = requests.get(cat_url)
 
     with open(animal_file_path, "wb") as f:
@@ -113,6 +114,7 @@ def get_dog():
     """
     Retrieves dog image from the random dog API and saves to file.
     """
+    "Dogs win!"
     dog.getDog(directory=animal_directory, filename=animal_file_name)
 
 
@@ -182,7 +184,9 @@ def send_email(discuss_workload):
         print("Something went wrong….", ex)
 
 
-def create_bar_chart(df: pd.DataFrame, metric: str, most_recent_week: datetime, time_period: str):
+def create_bar_chart(
+    df: pd.DataFrame, metric: str, most_recent_week: datetime, time_period: str
+):
     """
     Takes Dataframe and creates bar chart of selected column for the most recent week
 
@@ -218,7 +222,9 @@ def create_bar_chart(df: pd.DataFrame, metric: str, most_recent_week: datetime, 
     return fig
 
 
-def create_pie_chart(df: pd.DataFrame, metric: str, most_recent_week: str, time_period: str):
+def create_pie_chart(
+    df: pd.DataFrame, metric: str, most_recent_week: str, time_period: str
+):
     """
     Takes Dataframe and creates bar chart of selected column for most recent week
 

@@ -5,7 +5,7 @@ weekly_questions = {
         "How many three-hour development blocks did you get?",
     ],
     "pie_chart_questions": [
-        "How would you describe your level of context switching last week?"
+        "How would you describe your level of context switching last week?",
         "Please describe your overall stress level for the week",
         "How much sleep did you get on average?",
     ],
@@ -45,7 +45,7 @@ axis_labels = {
     "How many hours did you spend pair coding?": "Hours pair coding",
     "How many hours did you spend doing something new?": "Hours doing something new",
     "How many three-hour development blocks did you get?": "Number of development blocks",
-    "How would you describe your level of context switching last week?": "Context switching"
+    "How would you describe your level of context switching last week?": "Context switching",
     "Please describe your overall stress level for the week": "Stress level",
     "How much sleep did you get on average?": "Hours of sleep",
     "How many projects/products have you worked on?": "Number of projects",
